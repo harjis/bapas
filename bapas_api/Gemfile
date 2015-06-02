@@ -1,0 +1,20 @@
+source 'https://rubygems.org'
+
+gem 'rails', '4.2.1'
+gem 'mysql2'
+
+gem "activeadmin", github: "gregbell/active_admin"
+gem "devise"
+gem "active_model_serializers"
+gem "grape"
+gem "grape-active_model_serializers"
+gem "grape-swagger-rails"
+gem "rack-cors", require: "rack/cors"
+
+gem 'jquery-rails'
+gem 'uglifier'
+
+group :test do
+  gem 'rake'
+  gem 'minitest'
+end

@@ -1,0 +1,17 @@
+defaults: &defaults
+  adapter:   mysql2
+  encoding:  utf8
+  pool:      50
+  database:  <%= Rails.application.secrets.database %>
+  username:  <%= Rails.application.secrets.username %>
+  password:  <%= Rails.application.secrets.password %>
+  host:      <%= Rails.application.secrets.hostname %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

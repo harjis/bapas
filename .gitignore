@@ -1,0 +1,28 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+/bapas_api/.bundle
+/bapas_api/log/*.log
+/bapas_api/tmp
+/bapas_api/vendor/bundle
+/bapas_api/.env
+/bapas_api/public/assets
+/bapas_api/.idea
+/bapas_api/public/assets
+
+/bapas_front/.idea
+
+# compiled output
+/bapas_front/dist
+/bapas_front/tmp
+
+# dependencies
+/bapas_front/node_modules
+/bapas_front/bower_components
+
+# misc
+/bapas_front/.sass-cache
+/bapas_front/connect.lock
+/bapas_front/coverage/*
+/bapas_front/libpeerconnection.log
+/bapas_front/npm-debug.log
+/bapas_front/testem.log
