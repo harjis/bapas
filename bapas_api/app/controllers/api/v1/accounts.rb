@@ -14,7 +14,7 @@ module API
           requires :id, type: String, desc: "ID of the account"
         end
         get ":id", root: "account" do
-          Account.where(id: permitted_params[:id]).first!
+          Account.find(permitted_params[:id])
         end
       end
     end

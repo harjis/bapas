@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  mount API::Base, at: "/"
-  mount GrapeSwaggerRails::Engine, at: "/documentation"
+  mount API::Base, at: "/grape_api"
+
+  namespace :api, defaults: { format: :json }, format: false do
+    namespace :v1 do
+      resources :accounts
+    end
+  end
 
   resources :accounts do
     resources :payments
