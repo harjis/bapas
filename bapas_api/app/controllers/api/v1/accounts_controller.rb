@@ -1,6 +1,8 @@
 class Api::V1::AccountsController < ApplicationController
   def index
-    Account.all
+    @accounts = Account.all
+
+    render 'api/v1/accounts/index'
   end
 
   def show
