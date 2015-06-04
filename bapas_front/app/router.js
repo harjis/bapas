@@ -6,9 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function () {
-  this.resource('accounts', function () {
-    this.resource('account', {path: '/:account_id'}, function () {
-      this.resource('payments');
-    });
+  this.resource('accounts',function(){
+    this.resource('account', {path: '/:account_id'});
   });
 });
