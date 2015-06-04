@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604123408) do
+ActiveRecord::Schema.define(version: 20150604135440) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -52,6 +52,19 @@ ActiveRecord::Schema.define(version: 20150604123408) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string  "name",           limit: 255
+    t.integer "parent_id",      limit: 4
+    t.integer "lft",            limit: 4,               null: false
+    t.integer "rgt",            limit: 4,               null: false
+    t.integer "depth",          limit: 4,   default: 0, null: false
+    t.integer "children_count", limit: 4,   default: 0, null: false
+  end
+
+  add_index "categories", ["lft"], name: "index_categories_on_lft", using: :btree
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+  add_index "categories", ["rgt"], name: "index_categories_on_rgt", using: :btree
 
   create_table "other_accounts", force: :cascade do |t|
     t.string   "name",       limit: 255
