@@ -18,7 +18,8 @@
   {{#each payment in model.payments}}
       <li>
         {{#link-to 'payment' payment}}
-          {{payment.amount}}
+          Other Account: {{payment.oaccount.name}}
+           - Amount: {{payment.amount}}
         {{/link-to}}
       </li>
   {{/each}}
