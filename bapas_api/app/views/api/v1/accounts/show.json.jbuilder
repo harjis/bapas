@@ -6,5 +6,3 @@ json.account do
   json.updated_at @account.updated_at
   json.payments @account.payments.map(&:id)
 end
-
-json.payments @account.payments, @account.payments.first.attributes
