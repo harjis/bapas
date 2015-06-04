@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json }, format: false do
     namespace :v1 do
       resources :accounts
-      resources :other_accounts
+      resources :oaccounts, controller: 'other_accounts'
       resources :payments
     end
   end

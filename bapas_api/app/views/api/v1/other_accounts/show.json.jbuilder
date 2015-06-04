@@ -1,4 +1,4 @@
-json.other_account do
+json.oaccount do
   json.id @account.id
   json.name @account.name
   json.iban @account.iban

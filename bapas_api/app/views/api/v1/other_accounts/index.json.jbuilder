@@ -1,4 +1,4 @@
-json.other_accounts do
+json.oaccounts do
   json.array! @accounts, @accounts.first.attributes
 end
 
