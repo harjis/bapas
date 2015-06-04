@@ -1,6 +1,6 @@
 class Payment < ActiveRecord::Base
   belongs_to :account
-  belongs_to :other_account, class_name: 'Account', foreign_key: 'other_account_id'
+  belongs_to :other_account
 
   validates :account, presence: true
   validates :other_account, presence: true

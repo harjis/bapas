@@ -26,7 +26,7 @@ class PaymentBatchParser
       p = Payment.new
       p.from_hash payment_hash
       p.account = account
-      p.other_account = Account.find_or_initialize_by(name: payment_hash['saaja/maksaja'])
+      p.other_account = OtherAccount.find_or_initialize_by(name: payment_hash['saaja/maksaja'])
 
       p.save unless p.is_persisted?
     end
