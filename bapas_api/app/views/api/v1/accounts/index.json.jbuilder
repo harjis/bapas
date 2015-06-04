@@ -1,1 +1,4 @@
-json.array! @accounts, @accounts.first.attributes
+json.accounts do
+  json.array! @accounts, @accounts.first.attributes
+end
+
