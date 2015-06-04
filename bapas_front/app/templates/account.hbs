@@ -7,15 +7,19 @@
 </dl>
 
 <p>
-    Updated at: {{formatted-date model.updated_at}}
+    Updated at: {{formatted-date model.updatedAt}}
     <br>
-    Created at: {{formatted-date model.created_at}}
+    Created at: {{formatted-date model.createdAt}}
 </p>
 
 <h1>Payments:</h1>
 
 <ul>
   {{#each payment in model.payments}}
-      <li>{{payment.amount}}</li>
+      <li>
+        {{#link-to 'payment' payment}}
+          {{payment.amount}}
+        {{/link-to}}
+      </li>
   {{/each}}
 </ul>

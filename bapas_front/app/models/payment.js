@@ -1,16 +1,17 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  account:      DS.belongsTo('account'),
-  entry_date:   DS.attr('date'),
-  value_date:   DS.attr('date'),
-  payment_date: DS.attr('date'),
+  account:      DS.belongsTo('account', { async: true }),
+  otherAccount: DS.belongsTo('other_account', { async: true }),
+  entryDate:    DS.attr('date'),
+  valueDate:    DS.attr('date'),
+  paymentDate:  DS.attr('date'),
   amount:       DS.attr('string'),
   bic:          DS.attr('string'),
   action:       DS.attr('string'),
   reference:    DS.attr('string'),
   message:      DS.attr('string'),
-  card_number:  DS.attr('string'),
-  created_at:   DS.attr('date'),
-  updated_at:   DS.attr('date')
+  cardNumber:   DS.attr('string'),
+  createdAt:    DS.attr('date'),
+  updatedAt:    DS.attr('date')
 });
