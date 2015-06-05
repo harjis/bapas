@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :accounts
       resources :oaccounts, controller: 'other_accounts'
       resources :payments
+      resources :categories
     end
   end
 
