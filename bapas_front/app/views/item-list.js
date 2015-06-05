@@ -11,7 +11,7 @@ var TreeNodeView = Ember.View.extend({
   classNameBindings: ['opened:tree-branch-open', 'branch:tree-branch-icon:tree-node-icon'],
   // Ember had some issues with finding the treenode template when the branch view is dynamically added to
   // the parent collection view in the click event. Had to compile the template here instead
-  template: Ember.Handlebars.compile('{{view.content.name}} {{view.content.age}}'),
+  template: Ember.Handlebars.compile('{{view.content.name}}'),
   click: function (evt) {
     if (this.get('opened')) {
       // user wants to close the branch
@@ -49,11 +49,7 @@ var TreeNodeView = Ember.View.extend({
 var ItemList = Ember.CollectionView.extend({
   tagName: 'ul',
   classNames: ['a-collection'],
-  content: [
-    {
-      'name': 'Paul', 'age': 10, 'branch': true
-    }
-  ],
+  contentBinding: 'controller',
   itemViewClass: TreeNodeView
 });
 
