@@ -45,7 +45,7 @@ module.exports = function (environment) {
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
-    'script-src': "'self'",
+    'script-src': "'self' 'unsafe-eval'",
     'font-src': "'self'",
     'connect-src': "'self' http://localhost:3000/api/",
     'img-src': "'self'",
