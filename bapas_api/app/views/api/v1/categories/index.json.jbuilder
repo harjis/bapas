@@ -1,3 +1,3 @@
 json.categories do
-  json.array! @categories, @categories.first.attributes
+  json.array! @categories, @categories.first.try(:attributes)
 end
