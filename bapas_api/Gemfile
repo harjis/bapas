@@ -8,8 +8,6 @@ gem 'awesome_nested_set'
 gem "activeadmin", github: "gregbell/active_admin"
 gem "devise"
 gem "active_model_serializers"
-gem "grape"
-gem "grape-active_model_serializers"
 gem "rack-cors", require: "rack/cors"
 
 gem 'jquery-rails'
