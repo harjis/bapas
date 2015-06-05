@@ -8,6 +8,7 @@ var TreeNodeView = Ember.View.extend({
   subBranch: undefined,
   fetchedData: false,
   tagName: 'li',
+  classNameBindings: ['opened:tree-branch-open', 'branch:tree-branch-icon:tree-node-icon'],
   // Ember had some issues with finding the treenode template when the branch view is dynamically added to
   // the parent collection view in the click event. Had to compile the template here instead
   template: Ember.Handlebars.compile('{{view.content.name}} {{view.content.age}}'),
@@ -30,16 +31,16 @@ var TreeNodeView = Ember.View.extend({
       var me = this;
       name = this.get('content').name;
       age = this.get('content').age;
-      var treeBranchView = ItemList.create();
-      treeBranchView.set('content', [{ 'name': 'John', 'age': 10, 'branch': true }, {
+      var itemList = ItemList.create();
+      itemList.set('content', [{ 'name': 'John', 'age': 10, 'branch': true }, {
         'name': 'Tom',
         'age': 5,
         'branch': false
       }, { 'name': 'Paul', 'age': 7, 'branch': true }]);
       var index = me.get('parentView').indexOf(me) + 1;
-      me.get('parentView').insertAt(index, treeBranchView);
+      me.get('parentView').insertAt(index, itemList);
       me.set('opened', true);
-      me.set('subBranch', treeBranchView);
+      me.set('subBranch', itemList);
       me.set('fetchedData', true);
     }
   }
@@ -51,11 +52,7 @@ var ItemList = Ember.CollectionView.extend({
   content: [
     {
       'name': 'Paul', 'age': 10, 'branch': true
-    },
-    {
-      'name': 'Tom', 'age': 5, 'branch': false
-    },
-    { 'name': 'Paul', 'age': 7, 'branch': false }
+    }
   ],
   itemViewClass: TreeNodeView
 });
