@@ -3,7 +3,11 @@ import Ember from 'ember';
 var TreeNodeView = Ember.View.extend({
   opened: false,
   branch: function () {
-    return this.get('content').branch;
+    if (this.get('content').get('children_count') > 0) {
+      return true;
+    }
+
+    return false;
   }.property(),
   subBranch: undefined,
   fetchedData: false,
@@ -27,17 +31,15 @@ var TreeNodeView = Ember.View.extend({
       this.set('opened', true);
     }
     else if (this.get('branch')) {
-      // user wants to open the branch for the first time
-      var name, age;
       var me = this;
-      name = this.get('content').name;
-      age = this.get('content').age;
       var itemList = ItemList.create();
-      itemList.set('content', [{ 'name': 'John', 'age': 10, 'branch': true }, {
-        'name': 'Tom',
-        'age': 5,
-        'branch': false
-      }, { 'name': 'Paul', 'age': 7, 'branch': true }]);
+      var children = this.get('content').get('children');
+      itemList.set('content', [{
+        'name': 'John1',
+        'id': 11,
+        'branch': true
+      }]);
+
       index = me.get('parentView').indexOf(me) + 1;
       me.get('parentView').insertAt(index, itemList);
       me.set('opened', true);
