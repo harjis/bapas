@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
+export default Ember.Controller.extend({
   actions: {
     createCategory: function () {
       var name = this.get('newName').trim();
@@ -11,6 +11,10 @@ export default Ember.ArrayController.extend({
       category.save();
 
       this.set('newName', '');
+    },
+    setCategory: function (category) {
+      console.log('111');
+      console.log(category);
     }
   }
 });

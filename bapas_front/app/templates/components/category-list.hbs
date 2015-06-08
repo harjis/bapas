@@ -1,0 +1,5 @@
+<div class="row">
+  {{#each categories as |category|}}
+      <label{{action "selectCategory" category}}>{{category.name}}</label>
+  {{/each}}
+</div>

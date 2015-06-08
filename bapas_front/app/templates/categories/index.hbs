@@ -11,8 +11,4 @@
     </div>
 </div>
 
-<div class="row">
-  {{#each model}}
-    {{partial "categories/children"}}
-  {{/each}}
-</div>
+{{category-list categories=categories selectedCategory='setCategory'}}
