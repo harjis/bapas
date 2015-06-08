@@ -1,6 +1,6 @@
 class Api::V1::CategoriesController < ApplicationController
   def index
-    @root = Category.root
+    @categories = Category.all
 
     render 'api/v1/categories/index'
   end

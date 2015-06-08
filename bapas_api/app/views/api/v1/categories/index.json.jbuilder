@@ -1,5 +1,8 @@
 json.categories do
-  json.id @root.id
-  json.name @root.name
-  json.partial! 'api/v1/categories/children.json.jbuilder', children: @root.children
+  json.array! @categories do |category|
+    json.id category.id
+    json.name category.name
+    json.depth category.depth
+    json.children category.children.map(&:id)
+  end
 end
