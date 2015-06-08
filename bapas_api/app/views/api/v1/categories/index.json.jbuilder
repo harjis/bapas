@@ -1,3 +1,5 @@
 json.categories do
-  json.array! @categories, @categories.first.try(:attributes)
+  json.id @root.id
+  json.name @root.name
+  json.partial! 'api/v1/categories/children.json.jbuilder', children: @root.children
 end
