@@ -13,15 +13,16 @@ var TreeNodeView = Ember.View.extend({
   // the parent collection view in the click event. Had to compile the template here instead
   template: Ember.Handlebars.compile('{{view.content.name}}'),
   click: function (evt) {
+    var index = null;
     if (this.get('opened')) {
       // user wants to close the branch
-      var index = this.get('parentView').indexOf(this) + 1;
+      index = this.get('parentView').indexOf(this) + 1;
       this.get('parentView').removeAt(index);
       this.set('opened', false);
     }
     else if (this.get('fetchedData')) {
       // user wants to open the branch and we have already created the view before
-      var index = this.get('parentView').indexOf(this) + 1;
+      index = this.get('parentView').indexOf(this) + 1;
       this.get('parentView').insertAt(index, this.get('subBranch'));
       this.set('opened', true);
     }
@@ -37,7 +38,7 @@ var TreeNodeView = Ember.View.extend({
         'age': 5,
         'branch': false
       }, { 'name': 'Paul', 'age': 7, 'branch': true }]);
-      var index = me.get('parentView').indexOf(me) + 1;
+      index = me.get('parentView').indexOf(me) + 1;
       me.get('parentView').insertAt(index, itemList);
       me.set('opened', true);
       me.set('subBranch', itemList);
