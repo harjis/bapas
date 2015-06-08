@@ -1,4 +1,8 @@
 <div class="row">
+  {{#link-to "categories.roots" activeClass="selected"}}Roots{{/link-to}}
+</div>
+
+<div class="row">
     <div class="large-10 columns">
       {{input id="new-category" type="text" value=newName action="createCategory" placeholder="Category name"}}
     </div>
@@ -8,5 +12,7 @@
 </div>
 
 <div class="row">
-  {{view 'item-list'}}
+  {{#each model}}
+    {{partial "categories/children"}}
+  {{/each}}
 </div>

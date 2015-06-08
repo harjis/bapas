@@ -1,0 +1,10 @@
+<ul>
+    <li>
+        <label>{{name}}</label>
+      {{#if children}}
+        {{#each children}}
+          {{partial "categories/children"}}
+        {{/each}}
+      {{/if}}
+    </li>
+</ul>

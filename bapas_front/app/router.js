@@ -15,5 +15,6 @@ export default Router.map(function () {
 
   this.resource('categories', function () {
     this.resource('category', { path: '/:category_id' });
+    this.route('roots');
   });
 });
