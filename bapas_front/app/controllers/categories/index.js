@@ -18,16 +18,12 @@ export default Ember.Controller.extend({
         name: name,
         parent: parent
       });
-      category.save().then(function (child) {
-        parent.get("children").addObject(child);
-      });
+      category.save();
 
       this.set('newName', '');
     },
     selectCategory: function (category) {
       this.set('selectedCategory', category);
     }
-  },
-  categories: Ember.computed.alias('model'),
-  roots: Ember.computed.filterBy('categories', 'root')
+  }
 });

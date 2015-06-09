@@ -8,7 +8,7 @@ export default Ember.Component.extend({
       return true;
     },
     roots: function (category) {
-      return category.get('depth') === 0;
+      return category.get('root');
     }
   },
   filteredList: function () {
