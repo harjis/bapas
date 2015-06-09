@@ -1,8 +1,8 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  account: DS.belongsTo('account', { async: true }),
-  oaccount: DS.belongsTo('oaccount', { async: true }),
+  account: DS.belongsTo('account'),
+  oaccount: DS.belongsTo('oaccount'),
   entryDate: DS.attr('date'),
   valueDate: DS.attr('date'),
   paymentDate: DS.attr('date'),
