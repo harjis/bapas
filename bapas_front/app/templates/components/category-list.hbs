@@ -1,12 +1,6 @@
-<div class="row">
-    <ul>
-      {{#each filteredList as |category|}}
-          <li{{action "selectCategory" category}}>{{category.name}}</li>
-        {{#if category.children}}
-          {{#each category.children as |child|}}
-            {{partial "categories/children"}}
-          {{/each}}
-        {{/if}}
-      {{/each}}
-    </ul>
-</div>
+<ul>
+  {{#each filteredList as |category|}}
+      <li{{action "selectCategory" category}}>{{category.name}}</li>
+    {{category-list selectedCategory='setCategory' list=category.children root=false}}
+  {{/each}}
+</ul>
