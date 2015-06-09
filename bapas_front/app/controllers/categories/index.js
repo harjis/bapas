@@ -24,6 +24,12 @@ export default Ember.Controller.extend({
     },
     selectCategory: function (category) {
       this.set('selectedCategory', category);
+    },
+    destroyCategory: function (category) {
+      this.store.find('category', category.get('id')).then(function (category) {
+        category.deleteRecord();
+        category.save();
+      });
     }
   }
 });

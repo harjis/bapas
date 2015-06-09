@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   selectCategory: "selectCategory",
+  destroyCategory: "destroyCategory",
   filterBy: 'roots',
   filters: {
     all: function () {
@@ -22,6 +23,9 @@ export default Ember.Component.extend({
   actions: {
     selectCategory: function (category) {
       this.sendAction('selectCategory', category);
+    },
+    destroyCategory: function (category) {
+      this.sendAction('destroyCategory', category);
     }
   }
 });
