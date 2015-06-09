@@ -15,3 +15,19 @@ json.payment do
   json.created_at @payment.created_at
   json.updated_at @payment.updated_at
 end
+
+json.accounts Account.all do |account|
+  json.id account.id
+  json.name account.name
+  json.iban account.iban
+  json.created_at account.created_at
+  json.updated_at account.updated_at
+end
+
+json.oaccount OtherAccount.all do |account|
+  json.id account.id
+  json.name account.name
+  json.iban account.iban
+  json.created_at account.created_at
+  json.updated_at account.updated_at
+end
