@@ -1,6 +1,6 @@
 <ul>
   {{#each filteredList as |category|}}
-      <li{{action "selectCategory" category}}>{{category.name}}</li>
+      <li{{action "selectCategory" category}}>{{category.name}} <button class="button radius xtiny alert">X</button></li>
     {{category-list category=category root=false}}
   {{/each}}
 </ul>

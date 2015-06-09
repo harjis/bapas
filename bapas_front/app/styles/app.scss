@@ -5,24 +5,9 @@
   padding: 10px;
 }
 
-.tree-branch-icon {
-  list-style-type: none;
-  padding: 0px 0px 0px 20px;
-  margin: 0px;
-  background-image: url(http://localhost:3000/images/folder.png);
-  background-repeat: no-repeat;
-}
-.tree-branch-open {
-  list-style-type: none;
-  padding: 0px 0px 0px 20px;
-  margin: 0px;
-  background-image: url(http://localhost:3000/images/folder_go.png);
-  background-repeat: no-repeat;
-}
-.tree-node-icon {
-  list-style-type: none;
-  padding: 0px 0px 0px 20px;
-  margin: 0px;
-  background-image: url(http://localhost:3000/images/table.png);
-  background-repeat: no-repeat;
+button, .button {
+  &.xtiny {
+    @include button-size($padding: $button-xtny);
+    font-size: 0.7rem;
+  }
 }
