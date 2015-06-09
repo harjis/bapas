@@ -1,6 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  selectedCategory: null,
+  selectedCategoryName: function () {
+    if (this.get('selectedCategory')) {
+      return this.get('selectedCategory').get('name');
+    }
+    else {
+      return '';
+    }
+  }.property('selectedCategory'),
   actions: {
     createCategory: function () {
       var name = this.get('newName').trim();
@@ -13,8 +22,7 @@ export default Ember.Controller.extend({
       this.set('newName', '');
     },
     setCategory: function (category) {
-      console.log('111');
-      console.log(category);
+      this.set('selectedCategory', category);
     }
   }
 });
