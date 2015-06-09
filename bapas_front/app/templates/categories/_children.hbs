@@ -1,9 +1,0 @@
-<ul>
-    <li{{action "selectCategory" category}}>{{child.name}}
-      {{#if child.children}}
-        {{#each child.children as |child|}}
-          {{partial "categories/children"}}
-        {{/each}}
-      {{/if}}
-    </li>
-</ul>
