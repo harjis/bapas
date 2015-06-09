@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  selectCategory: "selectCategory",
   filterBy: 'roots',
   filters: {
     all: function () {
@@ -22,7 +23,8 @@ export default Ember.Component.extend({
   }.property('list', 'filterBy'),
   actions: {
     selectCategory: function (category) {
-      this.sendAction('selectedCategory', category);
+      console.log('component selectCategory');
+      this.sendAction('selectCategory', category);
     }
   }
 });

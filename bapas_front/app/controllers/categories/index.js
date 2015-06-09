@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
 
       this.set('newName', '');
     },
-    setCategory: function (category) {
+    selectCategory: function (category) {
       this.set('selectedCategory', category);
     }
   }
