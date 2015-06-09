@@ -12,15 +12,13 @@ export default Ember.Component.extend({
     }
   },
   filteredList: function () {
-    var filterFunction = null;
     if (this.get('root')) {
-      filterFunction = this.filters['roots'];
+      return this.get("category").filter(this.filters['roots']);
     }
     else {
-      filterFunction = this.filters['all'];
+      return this.get("category").get('children').filter(this.filters['all']);
     }
-    return this.get('list').filter(filterFunction);
-  }.property('list', 'filterBy'),
+  }.property('category.children'),
   actions: {
     selectCategory: function (category) {
       this.sendAction('selectCategory', category);

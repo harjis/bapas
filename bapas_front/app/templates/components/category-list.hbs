@@ -1,6 +1,6 @@
 <ul>
   {{#each filteredList as |category|}}
       <li{{action "selectCategory" category}}>{{category.name}}</li>
-    {{category-list list=category.children root=false}}
+    {{category-list category=category root=false}}
   {{/each}}
 </ul>

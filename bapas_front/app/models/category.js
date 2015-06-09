@@ -5,5 +5,7 @@ export default DS.Model.extend({
   parent: DS.belongsTo('category', { inverse: 'children' }),
   name: DS.attr('string'),
   children_count: DS.attr('number'),
-  depth: DS.attr('number')
+  depth: DS.attr('number'),
+
+  root: Ember.computed.equal('depth', 0),
 });
