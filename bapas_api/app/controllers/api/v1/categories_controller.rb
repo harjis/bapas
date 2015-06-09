@@ -13,12 +13,21 @@ class Api::V1::CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
+    @category.parent_id = params[:category][:parent]
 
     if @category.save
       render 'api/v1/categories/show'
     else
       # Figure out what to do
     end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+
+    @category.destroy
+
+    render status: 200, json: {}
   end
 
   private
