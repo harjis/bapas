@@ -23,7 +23,6 @@ export default Ember.Component.extend({
   }.property('list', 'filterBy'),
   actions: {
     selectCategory: function (category) {
-      console.log('component selectCategory');
       this.sendAction('selectCategory', category);
     }
   }
