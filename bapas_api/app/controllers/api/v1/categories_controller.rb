@@ -13,6 +13,7 @@ class Api::V1::CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
+    @category.parent_id = params[:category][:parent]
 
     if @category.save
       render 'api/v1/categories/show'
