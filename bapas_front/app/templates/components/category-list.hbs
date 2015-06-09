@@ -1,5 +1,5 @@
 <div class="row">
-  {{#each categories as |category|}}
+  {{#each filteredList as |category|}}
       <label{{action "selectCategory" category}}>{{category.name}}</label>
   {{/each}}
 </div>
