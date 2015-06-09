@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   },
   filteredList: function () {
     var filterFunction = this.filters[this.get('filterBy')];
-    return this.get('list').categories.filter(filterFunction);
+    return this.get('list').filter(filterFunction);
   }.property('list', 'filterBy'),
   actions: {
     selectCategory: function (category) {

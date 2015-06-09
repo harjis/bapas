@@ -1,8 +1,7 @@
 <ul>
-    <li>
-        <label{{action "selectCategory" on="doubleClick"}}>{{name}}</label>
-      {{#if children}}
-        {{#each children}}
+    <li{{action "selectCategory" category}}>{{child.name}}
+      {{#if child.children}}
+        {{#each child.children as |child|}}
           {{partial "categories/children"}}
         {{/each}}
       {{/if}}
