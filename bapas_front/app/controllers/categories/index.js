@@ -13,9 +13,10 @@ export default Ember.Controller.extend({
   actions: {
     createCategory: function () {
       var name = this.get('newName').trim();
-
+      var parent = this.get('selectedCategory');
       var category = this.store.createRecord('category', {
-        name: name
+        name: name,
+        parent: parent
       });
       category.save();
 
