@@ -5,6 +5,7 @@ json.oaccount do
   json.created_at @account.created_at
   json.updated_at @account.updated_at
   json.payments @account.payments.map(&:id)
+  json.category @account.category.try(:id)
 end
 
 json.payments @account.payments do |payment|
@@ -23,4 +24,14 @@ json.payments @account.payments do |payment|
   json.card_number payment.card_number
   json.created_at payment.created_at
   json.updated_at payment.updated_at
+end
+
+json.categories Category.all do |category|
+  json.id category.id
+  json.name category.name
+  json.parent_id category.parent_id
+  json.lft category.lft
+  json.rgt category.rgt
+  json.depth category.depth
+  json.children_count category.children_count
 end
