@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604135440) do
+ActiveRecord::Schema.define(version: 20150610135017) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -67,11 +67,14 @@ ActiveRecord::Schema.define(version: 20150604135440) do
   add_index "categories", ["rgt"], name: "index_categories_on_rgt", using: :btree
 
   create_table "other_accounts", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "iban",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",        limit: 255
+    t.string   "iban",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "category_id", limit: 4
   end
+
+  add_index "other_accounts", ["category_id"], name: "index_other_accounts_on_category_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.integer  "account_id",       limit: 4
@@ -92,4 +95,5 @@ ActiveRecord::Schema.define(version: 20150604135440) do
   add_index "payments", ["account_id"], name: "index_payments_on_account_id", using: :btree
   add_index "payments", ["other_account_id"], name: "index_payments_on_other_account_id", using: :btree
 
+  add_foreign_key "other_accounts", "categories"
 end
