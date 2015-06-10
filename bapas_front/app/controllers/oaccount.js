@@ -10,6 +10,8 @@ export default Ember.Controller.extend({
         oaccount.set('category', category);
         oaccount.save();
       });
+
+      this.transitionTo('oaccounts');
     }
   }
 });
