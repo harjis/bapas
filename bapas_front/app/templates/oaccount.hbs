@@ -15,5 +15,8 @@
 </div>
 
 <div class="row">
-    <!--Place for categories-->
+  {{view "select"
+  content=categories
+  optionValuePath="content.id"
+  optionLabelPath="content.name"}}
 </div>
