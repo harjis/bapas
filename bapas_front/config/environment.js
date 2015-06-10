@@ -48,7 +48,7 @@ module.exports = function (environment) {
     'script-src': "'self' 'unsafe-eval'",
     'font-src': "'self'",
     'connect-src': "'self' http://localhost:3000/api/",
-    'img-src': "'self'",
+    'img-src': "'self' data:",
     'style-src': "'self' 'unsafe-inline'",
     'media-src': "'self'"
   }
