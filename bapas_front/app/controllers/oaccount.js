@@ -5,10 +5,10 @@ export default Ember.Controller.extend({
     return this.get('model').get('category').id;
   }.property(),
   actions: {
-    saveOaccount: function () {
+    saveOaccount: function (oaccount) {
       var category_id = this.get('selectedCategory');
       var category = this.store.find('category', category_id);
-      this.store.find('oaccount', 2).then(function (oaccount) {
+      this.store.find('oaccount', oaccount.id).then(function (oaccount) {
         oaccount.set('category', category);
         oaccount.save();
       });
