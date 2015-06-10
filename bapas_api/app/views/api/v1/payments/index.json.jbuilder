@@ -2,7 +2,6 @@ json.payments do
   json.array! @payments do |payment|
     json.id payment.id
     json.account payment.account_id
-    json.other_account payment.other_account_id
     json.oaccount payment.other_account_id
     json.entry_date payment.entry_date
     json.value_date payment.value_date
