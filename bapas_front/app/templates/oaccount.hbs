@@ -18,5 +18,11 @@
   {{view "select"
   content=categories
   optionValuePath="content.id"
-  optionLabelPath="content.name"}}
+  optionLabelPath="content.name"
+  valueBinding="selectedCategory"
+  action="saveOaccount"}}
+</div>
+
+<div class="row">
+    <button class="button tiny radius" {{action "saveOaccount"}}>Save</button>
 </div>
