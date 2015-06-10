@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
         oaccount.save();
       });
 
-      this.transitionTo('oaccounts');
+      this.transitionToRoute('oaccounts');
     }
   }
 });
