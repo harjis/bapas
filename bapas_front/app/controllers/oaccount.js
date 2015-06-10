@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  selectedCategory: function () {
+    return this.get('model').get('category').id;
+  }.property(),
   actions: {
     saveOaccount: function () {
       var category_id = this.get('selectedCategory');
