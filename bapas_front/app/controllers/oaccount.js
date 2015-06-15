@@ -2,12 +2,16 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   selectedCategory: function () {
-    return this.get('model').get('category').id;
+    if (this.get('model').get('category') === null) {
+      return this.store.find('category').get('firstObject');
+    }
+    else {
+      return this.get('model').get('category');
+    }
   }.property(),
   actions: {
     saveOaccount: function (oaccount) {
-      var category_id = this.get('selectedCategory');
-      var category = this.store.find('category', category_id);
+      var category = this.get('selectedCategory');
       this.store.find('oaccount', oaccount.id).then(function (oaccount) {
         oaccount.set('category', category);
         oaccount.save();
