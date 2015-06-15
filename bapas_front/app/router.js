@@ -13,5 +13,9 @@ export default Router.map(function () {
     this.resource('payment', { path: '/:payment_id' });
   });
 
-  this.route('categories', function () {});
+  this.route('categories', function () {
+  });
+  this.route('oaccounts', function () {
+  });
+  this.route('oaccount', { path: '/oaccounts/:oaccount_id' });
 });

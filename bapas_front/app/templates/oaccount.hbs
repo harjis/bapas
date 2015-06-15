@@ -1,0 +1,27 @@
+<div class="row">
+    <dl>
+        <dt>Name</dt>
+        <dd>{{model.name}}</dd>
+
+        <dt>IBAN</dt>
+        <dd>{{model.iban}}</dd>
+    </dl>
+
+    <p>
+        Updated at: {{formatted-date model.updatedAt}}
+        <br>
+        Created at: {{formatted-date model.createdAt}}
+    </p>
+</div>
+
+<div class="row">
+  {{view "select"
+  content=categories
+  optionValuePath="content.id"
+  optionLabelPath="content.name"
+  selection=selectedCategory}}
+</div>
+
+<div class="row">
+    <button class="button tiny radius" {{action "saveOaccount" model}}>Save</button>
+</div>
