@@ -11,13 +11,14 @@ export default Ember.Controller.extend({
   }.property(),
   actions: {
     saveOaccount: function (oaccount) {
+      var that = this;
       var category = this.get('selectedCategory');
       this.store.find('oaccount', oaccount.id).then(function (oaccount) {
         oaccount.set('category', category);
-        oaccount.save();
+        oaccount.save().then(function () {
+          that.transitionToRoute('oaccounts');
+        });
       });
-
-      this.transitionToRoute('oaccounts');
     }
   }
 });
