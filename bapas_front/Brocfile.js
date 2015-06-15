@@ -19,5 +19,6 @@ var app = new EmberApp();
 
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/ember/ember-template-compiler.js');
+app.import('bower_components/foundation-datepicker/js/foundation-datepicker.js');
 
 module.exports = app.toTree();
