@@ -6,5 +6,7 @@ export default DS.Model.extend({
   oaccounts: DS.hasMany('oaccount'),
   name: DS.attr('string'),
   children_count: DS.attr('number'),
-  depth: DS.attr('number')
+  depth: DS.attr('number'),
+
+  root: Ember.computed.equal('depth', 0)
 });
