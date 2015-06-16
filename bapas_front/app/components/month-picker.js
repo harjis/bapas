@@ -1,11 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  changeDate: "changeDate",
   didInsertElement: function () {
     var _this = this;
-    this.$().fdatepicker({ format: 'M-yyyy', minViewMode: 'months' })
+    this.$().fdatepicker({ startView: 1 })
       .on('changeDate', function (e) {
-        _this.sendAction('action', e.format());
+        _this.sendAction('changeDate', moment(e.date));
       });
 
     this.update();
