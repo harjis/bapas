@@ -12,11 +12,6 @@ export default Ember.Component.extend({
     this.update();
   },
   update: function () {
-    if (this.get('month')) {
-      this.$().fdatepicker('update', this.get('month').toDate());
-    }
-    else {
-      this.$('.month.active').removeClass('active');
-    }
+    this.$().fdatepicker('update', this.get('month').toDate());
   }.observes('month')
 });
