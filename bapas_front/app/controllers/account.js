@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
   },
   data: function () {
     return {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: this.get('categoryLabels'),
       datasets: [
         {
           label: "My Second dataset",
@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(151,187,205,1)",
-          data: [28, 48, 40, 19, 86, 27, 90]
+          data: this.get('categoryData')
         }
       ]
     };
