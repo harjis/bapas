@@ -1,7 +1,7 @@
 <ul>
   {{#each account in model}}
       <li>
-        {{#link-to 'account' account}}
+        {{#link-to 'account' account.id}}
           {{account.name}},
           {{account.iban}}
         {{/link-to}}
