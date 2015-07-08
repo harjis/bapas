@@ -35,7 +35,14 @@ export default Ember.Controller.extend({
       var categoryId = this.categoryIds()[i];
       categoryData[categoryId] = 0;
       this.filteredPayments().forEach(function (payment) {
-        var currentCategoryId = payment.get('oaccount').get('category').get('id');
+        //TODO fix defaulting to root category (id=62)
+        var currentCategoryId = null;
+        if (payment.get('oaccount').get('category') === null) {
+          currentCategoryId = 62
+        }
+        else {
+          currentCategoryId = payment.get('oaccount').get('category').get('id');
+        }
         var amount = Math.abs(parseFloat(payment.get('amount')));
 
         if (currentCategoryId === categoryId) {
