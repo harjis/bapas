@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
         //TODO fix defaulting to root category (id=62)
         var currentCategoryId = null;
         if (payment.get('oaccount').get('category') === null) {
-          currentCategoryId = 62
+          currentCategoryId = 62;
         }
         else {
           currentCategoryId = payment.get('oaccount').get('category').get('id');
