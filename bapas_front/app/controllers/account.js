@@ -10,6 +10,15 @@ export default Ember.Controller.extend({
       this.set('date', date);
     }
   },
+  filteredPayments: function () {
+    var that = this;
+    return this.get('account').get('payments').filter(function (payment) {
+      var isYearSame = moment(payment.get('entry_date')).isSame(that.get('date'), 'year');
+      var isMonthSame = moment(payment.get('entry_date')).isSame(that.get('date'), 'month');
+
+      return (isYearSame && isMonthSame);
+    });
+  },
   categoryLabels: function () {
     return this.get('categories').map(function (category) {
       return category.get('name');
@@ -25,7 +34,7 @@ export default Ember.Controller.extend({
     for (var i in this.categoryIds()) {
       var categoryId = this.categoryIds()[i];
       categoryData[categoryId] = 0;
-      this.get('account').get('payments').forEach(function (payment) {
+      this.filteredPayments().forEach(function (payment) {
         var currentCategoryId = payment.get('oaccount').get('category').get('id');
         var amount = Math.abs(parseFloat(payment.get('amount')));
 
@@ -55,5 +64,5 @@ export default Ember.Controller.extend({
         }
       ]
     };
-  }.property()
+  }.property('date')
 });
