@@ -15,7 +15,6 @@ export default Ember.Controller.extend({
       labels: this.get('categoryLabels'),
       datasets: [
         {
-          label: "My Second dataset",
           fillColor: "rgba(151,187,205,0.2)",
           strokeColor: "rgba(151,187,205,1)",
           pointColor: "rgba(151,187,205,1)",
