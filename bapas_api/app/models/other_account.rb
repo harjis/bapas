@@ -1,4 +1,4 @@
-class OtherAccount < ActiveRecord::Base
+class OtherAccount < BaseModel
   has_many :payments
   belongs_to :category
 
