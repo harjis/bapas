@@ -20,10 +20,10 @@ export default Ember.Controller.extend({
       return category.get('id');
     });
   },
-  categoryData: function (ids) {
+  categoryData: function () {
     var categoryData = {};
-    for (var i in ids) {
-      var categoryId = ids[i];
+    for (var i in this.categoryIds()) {
+      var categoryId = this.categoryIds()[i];
       categoryData[categoryId] = 0;
       this.get('account').get('payments').forEach(function (payment) {
         var currentCategoryId = payment.get('oaccount').get('category').get('id');
@@ -41,12 +41,8 @@ export default Ember.Controller.extend({
     });
   },
   data: function () {
-    var categoryIds = this.categoryIds();
-    var categoryLabels = this.categoryLabels();
-    var categoryData = this.categoryData(categoryIds);
-
     return {
-      labels: categoryLabels,
+      labels: this.categoryLabels(),
       datasets: [
         {
           fillColor: "rgba(151,187,205,0.2)",
@@ -55,7 +51,7 @@ export default Ember.Controller.extend({
           pointStrokeColor: "#fff",
           pointHighlightFill: "#fff",
           pointHighlightStroke: "rgba(151,187,205,1)",
-          data: categoryData
+          data: this.categoryData()
         }
       ]
     };
