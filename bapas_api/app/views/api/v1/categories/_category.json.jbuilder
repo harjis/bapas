@@ -5,5 +5,6 @@ json.cache! category do
   json.lft category.lft
   json.rgt category.rgt
   json.depth category.depth
-  json.children_count category.children_count  
+  json.children_count category.children_count
+  json.children category.children.map(&:id)
 end
