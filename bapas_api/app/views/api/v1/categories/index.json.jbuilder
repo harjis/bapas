@@ -1,3 +1,6 @@
+# Add updated_at column to Category so we can cache it
+# json.cache! Category.cache_key_for_all do
+
 json.categories do
   json.array! @categories do |category|
     json.id category.id
