@@ -1,26 +1,9 @@
-<dl>
-    <dt>Name</dt>
-    <dd>{{model.name}}</dd>
+<div class="small-4 large-2 columns left">
+  {{outlet 'loading'}}
+  {{month-picker month=date}}
+</div>
 
-    <dt>IBAN</dt>
-    <dd>{{model.iban}}</dd>
-</dl>
-
-<p>
-    Updated at: {{formatted-date model.updatedAt}}
-    <br>
-    Created at: {{formatted-date model.createdAt}}
-</p>
-
-<h1>Payments:</h1>
-
-<ul>
-  {{#each payment in model.payments}}
-      <li>
-        {{#link-to 'payment' payment}}
-            Other Account: {{payment.oaccount.name}}
-            - Amount: {{payment.amount}}
-        {{/link-to}}
-      </li>
-  {{/each}}
-</ul>
+<div class="small-8 large-10 columns text-center">
+  <h1>{{title}}</h1>
+  {{ember-chart type='Bar' data=data legend=true}}
+</div>

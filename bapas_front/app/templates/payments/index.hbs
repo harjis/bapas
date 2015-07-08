@@ -1,13 +1,13 @@
 <ul>
   {{#each payment in model}}
-      <li>
-        {{#link-to 'payment' payment}}
-            Account: {{payment.account.name}}
-            - Other Account: {{payment.oaccount.name}}
-            - Amount: {{payment.amount}}
-        {{/link-to}}
-      </li>
+    <li>
+      {{#link-to 'payment' payment}}
+        Account: {{payment.account.name}}
+        - Other Account: {{payment.oaccount.name}}
+        - Amount: {{payment.amount}}
+      {{/link-to}}
+    </li>
   {{else}}
-      <li>No payments found.</li>
+    <li>No payments found.</li>
   {{/each}}
 </ul>
