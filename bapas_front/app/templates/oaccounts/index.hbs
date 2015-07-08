@@ -1,12 +1,12 @@
 <ul>
   {{#each oaccount in model}}
-      <li>
-        {{#link-to 'oaccount' oaccount}}
-          {{oaccount.name}},
-          {{oaccount.category.name}}
-        {{/link-to}}
-      </li>
+    <li>
+      {{#link-to 'oaccount' oaccount}}
+        {{oaccount.name}},
+        {{oaccount.category.name}}
+      {{/link-to}}
+    </li>
   {{else}}
-      <li>No other accounts found.</li>
+    <li>No other accounts found.</li>
   {{/each}}
 </ul>

@@ -1,12 +1,12 @@
 <ul>
   {{#each account in model}}
-      <li>
-        {{#link-to 'account' account.id}}
-          {{account.name}},
-          {{account.iban}}
-        {{/link-to}}
-      </li>
+    <li>
+      {{#link-to 'account' account.id}}
+        {{account.name}},
+        {{account.iban}}
+      {{/link-to}}
+    </li>
   {{else}}
-      <li>No accounts found.</li>
+    <li>No accounts found.</li>
   {{/each}}
 </ul>
