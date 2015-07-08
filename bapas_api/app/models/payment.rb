@@ -1,4 +1,4 @@
-class Payment < ActiveRecord::Base
+class Payment < BaseModel
   belongs_to :account
   belongs_to :other_account
 

@@ -1,4 +1,4 @@
-class Account < ActiveRecord::Base
+class Account < BaseModel
   has_many :payments
 
   def name=(string)
