@@ -6,7 +6,7 @@
   </tr>
   </thead>
   <tbody>
-  {{#each oaccount in model}}
+  {{#each oaccount in oaccounts}}
     <tr>
       <td>
         {{#link-to 'oaccount' oaccount}}
@@ -14,7 +14,11 @@
         {{/link-to}}
       </td>
       <td>
-        {{oaccount.category.name}}
+        {{view "select"
+        content=categories
+        optionValuePath="content.id"
+        optionLabelPath="content.name"
+        selection=oaccount.category}}
       </td>
     </tr>
   {{else}}
