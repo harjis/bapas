@@ -1,0 +1,16 @@
+<td>
+  {{#link-to 'oaccount' oaccount}}
+    {{oaccount.name}}
+  {{/link-to}}
+</td>
+<td>
+  {{view "select"
+  action="selectedChanged"
+  content=categories
+  optionValuePath="content.id"
+  optionLabelPath="content.name"
+  selection=selectedCategory}}
+</td>
+<td>
+  <button class="button tiny radius" {{action "saveOaccount" oaccount }}>Save</button>
+</td>

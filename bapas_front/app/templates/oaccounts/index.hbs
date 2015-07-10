@@ -1,1 +1,18 @@
-{{oaccount-list oaccounts=oaccounts categories=categories}}
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each oaccounts as |oaccount|}}
+    {{oaccount-tr oaccount=oaccount selectedCategory=oaccount.category categories=categories}}
+  {{else}}
+    <tr>
+      <td colspan="3">No other accounts found.</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
