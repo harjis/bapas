@@ -1,12 +1,18 @@
-<ul>
-  {{#each oaccount in model}}
-    <li>
-      {{#link-to 'oaccount' oaccount}}
-        {{oaccount.name}},
-        {{oaccount.category.name}}
-      {{/link-to}}
-    </li>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each oaccounts as |oaccount|}}
+    {{oaccount-tr oaccount=oaccount selectedCategory=oaccount.category categories=categories}}
   {{else}}
-    <li>No other accounts found.</li>
+    <tr>
+      <td colspan="3">No other accounts found.</td>
+    </tr>
   {{/each}}
-</ul>
+  </tbody>
+</table>
