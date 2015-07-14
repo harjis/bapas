@@ -4,7 +4,7 @@ import startApp from 'bapas-front/tests/helpers/start-app';
 
 var application;
 
-module('Acceptance | user can get list of oaccounts', {
+module('Acceptance | user can get root', {
   beforeEach: function() {
     application = startApp();
   },
@@ -14,12 +14,10 @@ module('Acceptance | user can get list of oaccounts', {
   }
 });
 
-test('visiting /user-can-get-list-of-oaccounts', function(assert) {
-  assert.expect(2);
-  visit('/oaccounts');
+test('visiting /', function(assert) {
+  visit('/');
 
   andThen(function() {
-    assert.equal(currentURL(), '/oaccounts');
-    assert.equal(find('table.oaccounts tbody:tr:td:first').text(), 'ALEPA');
+    assert.equal(currentURL(), '/');
   });
 });
