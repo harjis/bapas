@@ -1,20 +1,24 @@
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Category</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  {{#each oaccounts as |oaccount|}}
-    {{oaccount-tr oaccount=oaccount selectedCategory=oaccount.category categories=categories}}
-  {{else}}
-    <tr>
-      <td colspan="3">No other accounts found.</td>
-    </tr>
-  {{/each}}
-  </tbody>
-</table>
+<div class="row">
+  <div class="small-12 large-12 columns text-center">
+    <table class="full-width">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each oaccounts as |oaccount|}}
+        {{oaccount-tr oaccount=oaccount selectedCategory=oaccount.category categories=categories}}
+      {{else}}
+        <tr>
+          <td colspan="3">No other accounts found.</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
 
-{{page-numbers content=oaccounts}}
+    {{page-numbers content=oaccounts}}
+  </div>
+</div>
