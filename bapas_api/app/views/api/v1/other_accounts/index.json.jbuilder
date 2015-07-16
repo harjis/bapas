@@ -4,6 +4,10 @@ json.cache! OtherAccount.cache_key_for_all do
       json.partial! 'api/v1/other_accounts/other_account', other_account: oaccount
     end
   end
+
+  json.meta do
+    json.total_pages @accounts.total_pages
+  end
 end
 
 json.categories Category.all do |category|
