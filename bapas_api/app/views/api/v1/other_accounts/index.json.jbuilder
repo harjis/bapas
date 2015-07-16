@@ -5,8 +5,10 @@ json.cache! OtherAccount.cache_key_for_all + @page.to_s do
     end
   end
 
-  json.meta do
-    json.total_pages @accounts.total_pages
+  if @page > 0
+    json.meta do
+      json.total_pages @accounts.total_pages
+    end
   end
 end
 

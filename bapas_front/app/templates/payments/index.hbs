@@ -1,13 +1,40 @@
-<ul>
-  {{#each payment in model}}
-    <li>
-      {{#link-to 'payment' payment}}
-        Account: {{payment.account.name}}
-        - Other Account: {{payment.oaccount.name}}
-        - Amount: {{payment.amount}}
-      {{/link-to}}
-    </li>
-  {{else}}
-    <li>No payments found.</li>
-  {{/each}}
-</ul>
+<div class="row">
+  <div class="small-12 large-12 columns text-center">
+    <table class="full-width">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Account</th>
+        <th>Other Account</th>
+        <th>Amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each model as |payment|}}
+        <tr>
+          <td>
+            {{#link-to 'payment' payment}}
+              {{payment.id}}
+            {{/link-to}}
+          </td>
+          <td>
+            {{payment.account.name}}
+          </td>
+          <td>
+            {{payment.oaccount.name}}
+          </td>
+          <td>
+            {{payment.amount}}
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="4">No payments found.</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+
+    {{page-numbers content=model}}
+  </div>
+</div>
