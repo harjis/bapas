@@ -1,6 +1,7 @@
 class Api::V1::OtherAccountsController < ApplicationController
   def index
-    @accounts = OtherAccount.all
+    @page  = (params[:page] || 1).to_i
+    @accounts = OtherAccount.page(@page).per(10)
 
     render 'api/v1/other_accounts/index'
   end
@@ -12,7 +13,7 @@ class Api::V1::OtherAccountsController < ApplicationController
   end
 
   def update
-    @account = OtherAccount.find(params[:id])
+    @account             = OtherAccount.find(params[:id])
     @account.category_id = params[:oaccount][:category]
     if @account.save
       render status: 200, json: {}

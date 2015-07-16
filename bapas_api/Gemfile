@@ -4,6 +4,7 @@ gem 'rails', '4.2.1'
 gem 'mysql2'
 gem 'jbuilder'
 gem 'awesome_nested_set'
+gem 'kaminari'
 
 gem "activeadmin", github: "gregbell/active_admin"
 gem "devise"
