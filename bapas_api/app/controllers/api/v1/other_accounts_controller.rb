@@ -1,7 +1,12 @@
 class Api::V1::OtherAccountsController < ApplicationController
   def index
-    @page  = (params[:page] || 1).to_i
-    @accounts = OtherAccount.page(@page).per(10)
+    if params[:page]
+      @page     = params[:page].to_i
+      @accounts = OtherAccount.page(@page).per(10)
+    else
+      @page     = 0
+      @accounts = OtherAccount.all
+    end
 
     render 'api/v1/other_accounts/index'
   end

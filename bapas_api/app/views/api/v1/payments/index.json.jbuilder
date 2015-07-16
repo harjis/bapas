@@ -1,7 +1,13 @@
-json.cache! Payment.cache_key_for_all do
+json.cache! Payment.cache_key_for_all + @page.to_s do
   json.payments do
     json.array! @payments do |payment|
       json.partial! 'api/v1/payments/payment', payment: payment
+    end
+  end
+
+  if @page > 0
+    json.meta do
+      json.total_pages @payments.total_pages
     end
   end
 end
