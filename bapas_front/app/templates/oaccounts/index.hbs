@@ -3,8 +3,8 @@
     <hr>
     <dl class="sub-nav">
       <dt>Filter:</dt>
-      <dd class="active"><a href="#">All</a></dd>
-      <dd><a href="#">Categoryless</a></dd>
+      <dd class="active">{{link-to 'All' 'oaccounts' (query-params filter="")}}</dd>
+      <dd>{{link-to 'Categoryless' 'oaccounts' (query-params filter="categoryless")}}</dd>
     </dl>
     <hr>
   </div>
@@ -20,7 +20,7 @@
       </tr>
       </thead>
       <tbody>
-      {{#each oaccounts as |oaccount|}}
+      {{#each pagedContent as |oaccount|}}
         {{oaccount-tr oaccount=oaccount selectedCategory=oaccount.category categories=categories}}
       {{else}}
         <tr>
@@ -30,6 +30,6 @@
       </tbody>
     </table>
 
-    {{page-numbers content=oaccounts}}
+    {{page-numbers content=pagedContent}}
   </div>
 </div>

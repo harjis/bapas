@@ -6,13 +6,14 @@ export default Ember.Route.extend(RouteMixin, {
     var oaccounts = this.findPaged('oaccount', params);
     var categories = this.store.find('category');
 
+    //TODO why do we have to reutnr oaccounts under content key?
     return Ember.RSVP.hash({
       categories: categories,
-      oaccounts: oaccounts,
+      content: oaccounts,
     });
   },
 
-  setupController: function (controller, model) {
-    controller.setProperties(model);
+  setupController: function (controller, models) {
+    controller.setProperties(models);
   }
 });
