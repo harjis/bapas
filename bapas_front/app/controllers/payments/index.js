@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   perPage: 10,
   queryParams: ['page', 'perPage'],
 
-  pageBinding: 'content.page',
-  perPageBinding: 'content.perPage',
-  totalPagesBinding: 'content.totalPages'
+  pageBinding: 'model.page',
+  perPageBinding: 'model.perPage',
+  totalPagesBinding: 'model.totalPages'
 });
