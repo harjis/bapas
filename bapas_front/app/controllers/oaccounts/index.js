@@ -4,13 +4,15 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 export default Ember.Controller.extend({
   queryParams: ['page', 'perPage', 'filter'],
 
-  totalPagesBinding: 'pagedContent.totalPages',
-
   page: 1,
   perPage: 10,
   filter: '',
 
-  pagedContent: pagedArray("filteredContent", { pageBinding: "page", perPageBinding: "perPage" }),
+  pagedContent: pagedArray("filteredContent", {
+    pageBinding: "page",
+    perPageBinding: "perPage",
+    totalPagesBinding: 'model.totalPages',
+  }),
 
   //TODO
   // I do not get this. Why do I have to return Ember.ArrayProxy. And why routes model has to have content key in it.
@@ -33,8 +35,6 @@ export default Ember.Controller.extend({
     else {
       return oaccounts;
     }
-
-    return lol;
   }.property('arrangedContent.@each.hasCategory', 'filter'),
 
   actions: {
