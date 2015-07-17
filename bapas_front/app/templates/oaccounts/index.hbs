@@ -20,7 +20,7 @@
       </tr>
       </thead>
       <tbody>
-      {{#each pagedContent as |oaccount|}}
+      {{#each oaccounts as |oaccount|}}
         {{oaccount-tr oaccount=oaccount selectedCategory=oaccount.category categories=categories}}
       {{else}}
         <tr>
@@ -30,6 +30,6 @@
       </tbody>
     </table>
 
-    {{page-numbers content=pagedContent}}
+    {{page-numbers content=oaccounts showFL=true}}
   </div>
 </div>
