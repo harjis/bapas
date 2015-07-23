@@ -41,3 +41,9 @@ body > .ember-view {
 .full-width {
   width: 100%;
 }
+
+.loading img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
