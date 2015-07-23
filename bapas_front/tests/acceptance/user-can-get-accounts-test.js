@@ -18,6 +18,6 @@ test('visiting /accounts', function(assert) {
   visit('/accounts');
 
   andThen(function() {
-    assert.equal(currentURL(), '/accounts');
+    assert.equal(currentPath(), 'accounts.index');
   });
 });
