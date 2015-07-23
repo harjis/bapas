@@ -3,8 +3,14 @@ json.report do
   json.date @date.to_s
   json.report_data do
     json.array! @payments_by_category do |payment_sum|
-      json.category_id payment_sum.category_id
-      json.category_name @categories.find(payment_sum.category_id).name
+      if payment_sum.category_id
+        json.category_id payment_sum.category_id
+        json.category_name @categories.find(payment_sum.category_id).name
+      else
+        json.category_id 0
+        json.category_name '*not categorized*'
+      end
+
       json.amount payment_sum.sum_amount
     end
   end
