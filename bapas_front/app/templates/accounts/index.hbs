@@ -1,12 +1,30 @@
-<ul>
-  {{#each account in model}}
-    <li>
-      {{#link-to 'account' account.id}}
-        {{account.name}},
-        {{account.iban}}
-      {{/link-to}}
-    </li>
-  {{else}}
-    <li>No accounts found.</li>
-  {{/each}}
-</ul>
+<div class="row">
+  <div class="small-12 large-12 columns text-center">
+    <table class="full-width">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Account</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each model as |account|}}
+        <tr>
+          <td>
+            {{#link-to 'account' account}}
+              {{account.id}}
+            {{/link-to}}
+          </td>
+          <td>
+            {{account.name}}
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="2">No accounts found.</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
