@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :oaccounts, controller: 'other_accounts'
       resources :payments
       resources :categories
+      get 'reports/:account/:date', to: 'reports#show'
     end
   end
 
