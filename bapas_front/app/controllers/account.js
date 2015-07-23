@@ -10,19 +10,14 @@ export default Ember.Controller.extend({
       this.set('date', date);
     }
   },
-  filteredPayments: function () {
-    var that = this;
-    return this.get('account').get('payments').filter(function (payment) {
-      var isYearSame = moment(payment.get('entry_date')).isSame(that.get('date'), 'year');
-      var isMonthSame = moment(payment.get('entry_date')).isSame(that.get('date'), 'month');
-
-      return (isYearSame && isMonthSame);
-    });
-  },
   categoryLabels: function () {
-    return this.get('categories').map(function (category) {
-      return category.get('name');
+    var datas = this.get('report').get('report_data');
+    var result = [];
+    datas.forEach(function (data) {
+      result.push(data.category_name);
     });
+
+    return result;
   },
   categoryIds: function () {
     return this.get('categories').map(function (category) {
@@ -30,31 +25,13 @@ export default Ember.Controller.extend({
     });
   },
   categoryData: function () {
-    var categoryData = {};
-    for (var i in this.categoryIds()) {
-      var categoryId = this.categoryIds()[i];
-      categoryData[categoryId] = 0;
-      this.filteredPayments().forEach(function (payment) {
-        //TODO fix defaulting to root category (id=62)
-        var currentCategoryId = null;
-        if (payment.get('oaccount').get('category') === null) {
-          currentCategoryId = 62;
-        }
-        else {
-          currentCategoryId = payment.get('oaccount').get('category').get('id');
-        }
-        var amount = Math.abs(parseFloat(payment.get('amount')));
-
-        if (currentCategoryId === categoryId) {
-          categoryData[categoryId] += amount;
-        }
-      });
-    }
-
-    var categoryIds = Object.keys(categoryData);
-    return categoryIds.map(function (categoryId) {
-      return categoryData[categoryId];
+    var datas = this.get('report').get('report_data');
+    var result = [];
+    datas.forEach(function (data) {
+      result.push(Math.abs(parseFloat(data.amount)));
     });
+
+    return result;
   },
   data: function () {
     return {

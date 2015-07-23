@@ -1,15 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function (params) {
-    var categories = this.store.find('category');
-    var oaccounts = this.store.find('oaccount');
-    var account = this.store.find('account', params.account_id);
+  model: function () {
+    var report = this.store.find('report', moment().format('YYYY-MM-DD'));
 
     return Ember.RSVP.hash({
-      account: account,
-      categories: categories,
-      oaccounts: oaccounts,
+      report: report,
     });
   },
 
