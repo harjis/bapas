@@ -6,6 +6,7 @@ class Api::V1::ReportsController < ApplicationController
     @payments = @payments.where('extract(month from entry_date) = ?', @date.month)
     @payments = @payments.select('other_accounts.category_id, SUM(payments.amount) AS sum_amount')
     @payments_by_category = @payments.group('other_accounts.category_id')
+    @categories = Category.all
 
     render 'api/v1/reports/show'
   end
