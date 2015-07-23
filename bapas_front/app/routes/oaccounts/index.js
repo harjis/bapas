@@ -5,6 +5,9 @@ export default Ember.Route.extend(RouteMixin, {
   queryParams: {
     page: {
       refreshModel: true
+    },
+    filter: {
+      refreshModel: true
     }
   },
   model: function (params) {
