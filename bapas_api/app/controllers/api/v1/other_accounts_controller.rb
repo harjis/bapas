@@ -1,11 +1,18 @@
 class Api::V1::OtherAccountsController < ApplicationController
   def index
+    # Horrible but will do for now
+    if params[:filter] && params[:filter] == 'categoryless'
+      @accounts = OtherAccount.categoryless
+      @category = 1
+    else
+      @accounts = OtherAccount.all
+      @category = 0
+      @page     = 0
+    end
+
     if params[:page]
       @page     = params[:page].to_i
-      @accounts = OtherAccount.page(@page).per(10)
-    else
-      @page     = 0
-      @accounts = OtherAccount.all
+      @accounts = @accounts.page(@page).per(10)
     end
 
     render 'api/v1/other_accounts/index'
