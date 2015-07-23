@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['page', 'perPage'],
+  queryParams: ['page', 'perPage', 'filter'],
 
   pageBinding: 'oaccounts.page',
   perPageBinding: 'oaccounts.perPage',

@@ -1,6 +1,10 @@
 <td>
   {{#link-to 'oaccount' oaccount}}
-    {{oaccount.name}}
+    {{#if oaccount.name}}
+      {{oaccount.name}}
+    {{else}}
+      *unnamed*
+    {{/if}}
   {{/link-to}}
 </td>
 <td>
@@ -9,7 +13,8 @@
   content=categories
   optionValuePath="content.id"
   optionLabelPath="content.name"
-  selection=selectedCategory}}
+  selection=selectedCategory
+  prompt="Please select a category"}}
 </td>
 <td>
   <button class="button tiny radius" {{action "saveOaccount" oaccount }}>Save</button>
