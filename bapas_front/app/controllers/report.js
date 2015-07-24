@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   }.property('date'),
   actions: {
     changeDate: function (date) {
-      this.set('date', date);
+      this.transitionToRoute('report', date.format('YYYY-MM-DD'));
     }
   },
   categoryLabels: function () {
