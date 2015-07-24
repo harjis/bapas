@@ -2,10 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function (params) {
-    var report = this.store.find('report', moment(params.report_id).format('YYYY-MM-DD'));
+    var date = moment(params.report_id);
+    var report = this.store.find('report', date.format('YYYY-MM-DD'));
 
     return Ember.RSVP.hash({
       report: report,
+      date: date,
     });
   },
 
