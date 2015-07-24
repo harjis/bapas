@@ -1,6 +1,5 @@
 json.report do
   json.id @date.strftime('%Y-%m')
-  json.date @date.to_s
   json.report_data do
     json.array! @payments_by_category do |payment_sum|
       if payment_sum.category_id
