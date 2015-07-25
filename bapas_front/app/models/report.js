@@ -4,5 +4,6 @@ export default DS.Model.extend({
   date: function () {
     return moment(this.get('id'));
   }.property('model'),
-  report_data: DS.attr()
+  negative_payments: DS.attr(),
+  positive_payments: DS.attr(),
 });
