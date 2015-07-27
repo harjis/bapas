@@ -17,4 +17,5 @@ test('returns moment date', function(assert) {
   report.set('id', '2015-01-01');
 
   assert.equal(report.get('date')._isAMomentObject, true);
+  assert.equal(report.get('date').format('DD-MM-YYY'), '01-01-2015');
 });
