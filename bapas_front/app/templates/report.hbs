@@ -1,0 +1,42 @@
+<div class="small-4 large-2 columns left-panel text-center">
+  {{month-picker month=report.date}}
+</div>
+
+<div class="small-8 large-10 columns text-center center-panel">
+  <div class="row">
+    <div class="small-12 large-12 columns text-center">
+      <h1>{{title}}</h1>
+      {{ember-chart type='Bar' data=data legend=true}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 large-12 columns text-center">
+      <h1>Total outcome: {{totalOutcome}}€</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 large-12 columns text-center">
+      <h1>Income: {{totalIncome}}€</h1>
+      <table>
+        <thead>
+        <tr>
+          <th>Category</th>
+          <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each positive_payments as |payment|}}
+          <tr>
+            <td>
+              {{payment.category_name}}
+            </td>
+            <td>
+              {{payment.amount}}
+            </td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
