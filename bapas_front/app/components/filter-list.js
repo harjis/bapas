@@ -5,7 +5,7 @@ export default Ember.Component.extend({
     var el = Ember.$(event.target);
 
     if (el.is('a')) {
-      var dd = $(el.parent()[0]);
+      var dd = Ember.$(el.parent()[0]);
       var dl = dd.parent();
       dl.children('dd').removeClass('active');
       dd.addClass('active');
