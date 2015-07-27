@@ -9,7 +9,7 @@ export default Ember.Route.extend({
     });
   },
 
-  setupController: function (controller, model) {
-    controller.setProperties(model);
+  setupController: function (controller, models) {
+    controller.setProperties(models);
   }
 });
