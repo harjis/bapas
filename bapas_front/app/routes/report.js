@@ -15,7 +15,7 @@ export default Ember.Route.extend({
     controller.setProperties(model);
   },
   actions: {
-    loading: function (transition, originRoute) {
+    loading: function () {
       //Do not bubble the loading to the applicationroute
       return false;
     }
