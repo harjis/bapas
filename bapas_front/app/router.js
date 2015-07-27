@@ -11,6 +11,8 @@ export default Router.map(function () {
   });
   this.route('account', { path: 'accounts/:account_id' });
 
+  this.route('report', { path: 'reports/:report_id' });
+
   this.resource('payments', function () {
     this.resource('payment', { path: '/:payment_id' });
   });
